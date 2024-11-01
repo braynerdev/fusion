@@ -4,7 +4,7 @@ import uuid
 
 def get_file_path(_instance, filename):
     ext = filename.split('.')[-1]
-    filename= f'{uuid.uuid4}.{ext}'
+    filename= f'{uuid.uuid4()}.{ext}'
     return filename
 
 class Base(models.Model):
@@ -45,8 +45,8 @@ class Cargo(Base):
 class Funcionario(Base):
     nome = models.CharField('Nome', max_length=100)
     cargo = models.ForeignKey('core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
-    bio = models.TextField('Bio', max_length=200)
-    imagem = StdImageField('Imagem',upload_to=get_file_path , variations={'tumb': {'width':480, 'height':480, 'crop': False}})
+    bio = models.TextField('Bio', max_length=105)
+    imagem = StdImageField('Imagem',upload_to=get_file_path , variations={'thumb':{'width': 480, 'height': 480, 'crop': True}})
     facebook = models.CharField('Facebook', max_length=100, default='#')
     x = models.CharField('X', max_length=100, default='#')
     instagram = models.CharField('Instagram', max_length=100, default='#')
