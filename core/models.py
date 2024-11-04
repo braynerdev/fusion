@@ -16,14 +16,14 @@ class Base(models.Model):
 
 
 class Servico(Base):
-    ICONE_CHOICES = {
-        ('ini-cog', 'Engrenagem'),
-        ('ini-stats-up', 'Gráficos'),
-        ('ini-users', 'Usuários'),
-        ('ini-layers', 'Design'),
-        ('ini-mobile', 'Mobile'),
-        ('ini-rocket', 'Foguete'),
-    }
+    ICONE_CHOICES = (
+        ('lni-cog', 'Engrenagem'),
+        ('lni-stats-up', 'Gráficos'),
+        ('lni-users', 'Usuários'),
+        ('lni-layers', 'Design'),
+        ('lni-mobile', 'Mobile'),
+        ('lni-rocket', 'Foguete'),
+    )
     servico = models.CharField('Serviço', max_length= 100)
     descricao = models.TextField('Descrição', max_length=200)
     icone = models.CharField('Icone', max_length=12, choices=ICONE_CHOICES)
